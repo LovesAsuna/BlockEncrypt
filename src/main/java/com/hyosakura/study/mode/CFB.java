@@ -10,6 +10,10 @@ import java.util.Arrays;
  * @author LovesAsuna
  **/
 public class CFB extends CipherMode {
+    /**
+     * @param cipher 加密方法
+     * @param length 分块长度(以字节为单位)
+     */
     public CFB(Cipher cipher, int length) {
         super(cipher, length);
     }

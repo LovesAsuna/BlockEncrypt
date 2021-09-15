@@ -8,6 +8,10 @@ import com.hyosakura.study.util.ByteUtil;
  * @author LovesAsuna
  **/
 public class CBC extends CipherMode {
+    /**
+     * @param cipher 加密方法
+     * @param length 分块长度(以字节为单位)
+     */
     public CBC(Cipher cipher, int length) {
         super(cipher, length);
     }
