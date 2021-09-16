@@ -38,14 +38,14 @@ public class CTR extends CipherMode {
 
     public void increaseCounter(byte[] counter, int counterLength) {
         // 从最低位开始进位
-        if (counter[counter.length - 1] == 0b01111111) {
+        if (Byte.toUnsignedInt(counter[counter.length - 1]) == 0b11111111) {
             counter[counter.length - 1] = 0;
             for (int i = counter.length - 2; i > counter.length - counterLength - 1; i--) {
-                if (counter[i] != 0b01111111) {
-                    counter[i] = (byte) (counter[i] + 1);
-                    break;
-                } else {
+                if (Byte.toUnsignedInt(counter[i]) == 0b11111111) {
                     counter[i] = 0;
+                } else {
+                    counter[i] += 1;
+                    break;
                 }
             }
         } else {
