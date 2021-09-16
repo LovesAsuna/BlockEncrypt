@@ -15,7 +15,7 @@ public class ByteUtil {
             throw new IllegalArgumentException("The length of the two byte arrays must be equal");
         }
         for (int i = 0; i < aLength; i++) {
-            bytes[i] = (byte) (a[i] ^ b[i]);
+            bytes[i] = (byte) (Byte.toUnsignedInt(a[i]) ^ Byte.toUnsignedInt(b[i]));
         }
         return bytes;
     }
